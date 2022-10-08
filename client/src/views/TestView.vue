@@ -3,7 +3,7 @@ import { api } from "../api";
 import { ref } from "vue";
 import type { Person } from ".prisma/client";
 
-const persons = ref([] as Person[]);
+const persons = ref<Person[]>([]);
 getPersons();
 
 async function addPerson() {
