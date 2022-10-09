@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { api } from "../api";
+import api from "../api";
 import { ref } from "vue";
 import type { Person } from ".prisma/client";
 
@@ -7,16 +7,16 @@ const persons = ref<Person[]>([]);
 getPersons();
 
 async function addPerson() {
-  await api.mutation("create");
+  await api.mutation("person.create");
   await getPersons();
 }
 
 async function getPersons() {
-  persons.value = await api.query("getPeople");
+  persons.value = await api.query("person.getPeople");
 }
 
 async function deleteAllPersons() {
-  await api.mutation("deleteAll");
+  await api.mutation("person.deleteAll");
   await getPersons();
 }
 </script>
