@@ -2,10 +2,13 @@
 
 ## Stack
 
-- **Server**: Node, Express, Prisma, Postgres
-- **Client**: Vue, Pinia, Element-plus
-- **Test**: Jest, Playwright
-- **Tools**: Typescript, Prettier, Eslint, Docker
+- **DB**: Postgres
+- **Server**: Node.js(Express), Prisma
+- **Client**: Vue stack - Vue 3, Pinia, Element-plus
+- **Dev Tools**: Typescript, Prettier, Eslint, Docker
+- **Test Frameworks**: Jest, Playwright
+- **Authentication**: Basic Authentication
+- **Authorization**: JSON Web Tokens (JWT)
 
 ## Init
 
