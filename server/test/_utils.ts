@@ -25,10 +25,10 @@ export const trpcClientBasicAuth = (user: string, password: string) => {
 };
 
 export class TrpcClientAuthenticated {
-  private user: User | null;
+  private user?: User;
   private email: string;
   private password: string;
-  private token: string | null;
+  private token?: string;
   private isAdmin: boolean;
 
   // Create a trpcClient that is already logged in with coockie token.
@@ -36,8 +36,6 @@ export class TrpcClientAuthenticated {
     this.isAdmin = Boolean(ops?.admin);
     this.email = this.isAdmin ? "admin" : `${Date.now()}@test.com`;
     this.password = this.isAdmin ? "admin" : "123456";
-    this.user = null;
-    this.token = null;
   }
 
   async init() {
@@ -52,7 +50,7 @@ export class TrpcClientAuthenticated {
       fetch,
       transformer: superjson,
       links: [httpLink({ url })],
-      headers: () => ({ cookie: `token=${this.token};` }) // Manually inserting cookie token for tests
+      headers: () => ({ cookie: this.token ? `token=${this.token};` : undefined }) // Manually inserting cookie token for tests
     });
   }
 

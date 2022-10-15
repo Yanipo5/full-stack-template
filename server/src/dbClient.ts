@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-export const prisma = new PrismaClient({ log: ["info", "warn", "error"] });
+export const prisma = new PrismaClient({ log: process.env.npm_lifecycle_script !== "jest" ? ["info", "warn", "error"] : ["warn", "error"] });
 export type PrismaInstance = typeof prisma;
 
 try {
